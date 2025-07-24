@@ -1,6 +1,6 @@
 import logging
 
-def factorial(n):
+def factorial_name(n):
 
     if type(n) is not int:
         raise TypeError('Int required')
@@ -13,7 +13,7 @@ def factorial(n):
     if n == 0:
         return 1
     else:
-        return n * factorial(n - 1)
+        return n * factorial_name(n - 1)
 
 
 def is_anagram(word1, word2):

@@ -1,8 +1,9 @@
 import unittest
 import logging
+from test_functions import triangle_area
 
-class TestLogging(unittest.TestCase):
-    def test_log_warning(self):
+class LoggingTest(unittest.TestCase):
+    def log_warning_test(self):
         logger = logging.getLogger(__name__)
         with self.assertLogs(logger=logger, level='WARNING'):  # debug => info => warning => error => critical
             logger.info("This is a warning message")

@@ -3,7 +3,7 @@ import unittest
 import sys
 import pathlib
 sys.path.insert(0, str(pathlib.Path(__file__).parent.parent.parent))
-from test_functions import factorial
+from test_functions import factorial_name
 
 
 # print(f"file path: {pathlib.Path(__file__)}")
@@ -12,13 +12,13 @@ from test_functions import factorial
 
 class FactorialPositiveTest(unittest.TestCase):
     def test_factorial_5(self):
-        actual_result = factorial(5)
+        actual_result = factorial_name(5)
         expected_result = 120
 
         self.assertEqual(expected_result, actual_result)
 
     def test_factorial_0(self):
-        actual_result = factorial(0)
+        actual_result = factorial_name(0)
         expected_result = 1
 
         self.assertEqual(expected_result, actual_result)
