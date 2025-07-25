@@ -58,8 +58,9 @@ def triangle_area(a, b, c):
 
 def convert_to_24_hour(time_str):
 
-    if type(time_str) == list:
-        raise TypeError
+    if type(time_str) == int:
+        logging.error("Wrong type!!!")
+        raise AttributeError
 
     if type(time_str) == dict:
         raise ValueError

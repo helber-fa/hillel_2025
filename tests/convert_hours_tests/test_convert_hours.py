@@ -1,3 +1,5 @@
+import logging
+
 import pytest
 
 from test_functions import convert_to_24_hour
@@ -22,11 +24,14 @@ class TestConvertHoursPositive:
         ("1:34 AM", "01:34"),
         ("00:01 AM", "00:01"),
     ])
-    def test_convert_hours(self, function_input, expected_result):
-        assert convert_to_24_hour(function_input) == expected_result
+    def test_convert_hours_positive(self, function_input, expected_result):
+        actual_result = convert_to_24_hour(function_input)
+        logging.info(f"expected: {expected_result}, actual: {actual_result}")
+        assert actual_result == expected_result
 
 
-    @pytest.mark.parametrize('function_input', [ValueError, TypeError, IndexError])
+    @pytest.mark.parametrize('function_input', [AttributeError, AttributeError, AttributeError])
     def test_convert_hours(self, function_input):
+        logging.warning("Pay attention it is negative test ")
         with pytest.raises(AttributeError):
-            convert_to_24_hour()
+            convert_to_24_hour(0)
