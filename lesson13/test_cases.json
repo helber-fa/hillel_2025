@@ -1,0 +1,30 @@
+[
+    {
+        "id": "TC001",
+        "title": "Verify login with valid credentials",
+        "priority": "High",
+        "steps": ["Open login page", "Enter valid username", "Enter valid password", "Click Login"],
+        "expected_result": "User is logged in successfully"
+    },
+    {
+        "id": "TC002",
+        "title": "",
+        "priority": "Urgent",
+        "steps": [],
+        "expected_result": ""
+    },
+    {
+        "id": "123",
+        "title": "Verify logout functionality",
+        "priority": "Medium",
+        "steps": ["Login as valid user", "Click Logout button"],
+        "expected_result": "User is redirected to the login page"
+    },
+    {
+        "id": "TC004",
+        "title": "Verify password reset",
+        "priority": "Low",
+        "steps": [],
+        "expected_result": "Password reset email is sent"
+    }
+]
