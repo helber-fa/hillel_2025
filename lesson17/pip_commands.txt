@@ -1,0 +1,14 @@
+pip freeze - показує встановлені пакети і їх версії
+pip freeze > requirements.txt - записуэ результати роботи pip freeze в файл
+pip install -r .\requirements.txt - встановлює пакети відповідно до вмісту файлу
+
+git clone
+apt install python3.12-venv
+pip -m venv .venv_name_folder
+source .venv_name_folder/bin/activate
+pip install -r requirements.txt
+pytest ..
+
+
+
+

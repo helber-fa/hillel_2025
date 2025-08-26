@@ -1,0 +1,1 @@
+from lesson17.inner_package.student import User as User_class

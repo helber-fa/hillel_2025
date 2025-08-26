@@ -1,10 +1,12 @@
 import pathlib
 import os
-
+from lesson15.incapsulation_example import Car
 current_dir = pathlib.Path().absolute()
 lesson_folder_full_path = current_dir.parent
 print(lesson_folder_full_path)
 
+car = Car()
+car.
 #правильно з'єднує шлях відповідно до операційної системи
 full_pass_to_lesson_7 = os.path.join(lesson_folder_full_path, "lesson7")
 print(full_pass_to_lesson_7)
