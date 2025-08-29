@@ -19,5 +19,5 @@ class Cat(Animal):
 # some_animal = Animal()
 # some_animal.make_sound()
 
-dog = Dog()
-print(dog.make_sound())
+# dog = Dog()
+# print(dog.make_sound())

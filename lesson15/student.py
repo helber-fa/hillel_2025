@@ -23,4 +23,4 @@ print(alex)
 alex.score = 1000000
 print(alex)
 
-print(alex + alex)
+# print(alex + alex)
