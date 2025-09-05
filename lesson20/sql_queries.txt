@@ -1,0 +1,29 @@
+CREATE TABLE public.users (
+	id int GENERATED ALWAYS AS IDENTITY NOT NULL,
+	"name" varchar NULL,
+	CONSTRAINT users_pk PRIMARY KEY (id)
+);
+
+insert into public.users
+("name")
+values ('Sofa')
+
+select * --* для всіх стовбців
+from public.users u
+where "name"  = 'Alex' and "id" = 1
+
+update public.classes c
+set descr = 'Math lesson'
+where name='Math'
+
+delete
+from users
+where "id" = 3
+
+select u.id, uic.user_id , u."name" , uic.class_id
+from users u
+right join users_in_classes uic on u.id = uic.user_id
+
+select u.*, uic.*
+from users u
+right join users_in_classes uic on u.id = uic.user_id

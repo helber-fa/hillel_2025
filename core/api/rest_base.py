@@ -4,8 +4,8 @@ logger = logging.getLogger("RestBase")
 
 class RestBase:
     @staticmethod
-    def _execute_request(method, url, params=None, data=None, json=None, files=None, status_code=None):
-        response = getattr(requests, method)(url=url, params=params, data=data, json=json, files=files)
+    def _execute_request(method, url, params=None, data=None, json=None, files=None, status_code=None, headers=None):
+        response = getattr(requests, method)(url=url, params=params, data=data, json=json, files=files, headers=headers)
 
         logger.info(f"request was send to {method} {url} with params {params}"
                     f"\nResponse has status code {response.status_code}")
