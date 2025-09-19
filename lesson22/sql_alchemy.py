@@ -51,6 +51,20 @@ session.close()
 #     User(name='Bob', age=35),
 # ]) # так як імена унікальні - код спрацює лише раз
 
+# транзакції
+
+try:
+    session.begin()
+    all_users = session.query(User).all()
+    all_users[1].name = "Custom user"
+    session.commit()
+    raise AttributeError("Some custom error")
+except:
+    print("Something went wrong")
+    session.rollback()
+finally:
+    session.commit()
+
 
 
 
