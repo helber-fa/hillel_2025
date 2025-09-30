@@ -11,7 +11,7 @@ driver = Chrome()
 # відкриваємо сторінку з прикладом
 driver.get("http://localhost:8000/html/action_chains.html")
 actions = ActionChains(driver)
-actions.key_down(Keys.CONTROL).key_down(Keys.ALT).send_keys("w").key_up(Keys.Com).key_up(Keys.ALT).perform()
+actions.key_down(Keys.CONTROL).send_keys("w").perform()
 
 # знаходимо eлемент circle
 circle = driver.find_element(By.ID, "circle")
