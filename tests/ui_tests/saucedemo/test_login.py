@@ -1,20 +1,18 @@
 import pytest
-from selenium.webdriver import Chrome
 
-from core.ui.saucedemo.pages.login_page import LoginPage
-from core.ui.saucedemo.pages.products_page import ProductsPage
+from settings import settings
+import pytest_check
 
-
-@pytest.fixture
-def driver():
-    driver = Chrome()
-    yield driver
-    driver.close()
-
-def test_product_page_is_open(driver):
-    login_page = LoginPage(driver)
-    login_page.open_page()
-    login_page.login_user("standard_user", "secret_sauce")
-    products_page = ProductsPage(driver)
+def test_product_page_is_open(driver, login_page, products_page):
+    login_page.login_user(settings.saucedemo_user, settings.saucedemo_pass)
     products_page.products_images()
+
+@pytest.mark.parametrize("user_name, password", [
+    ("placeholder", settings.saucedemo_pass),
+    (settings.saucedemo_user, "placeholder")])
+def test_invalid_credentials(user_name, password, driver, login_page):
+    login_page.login_user(user_name, password)
+    pytest_check.equal(login_page.get_error_message(), "Epic sadface: Username and password do not match any user in this service")
+    pytest_check.equal(login_page.get_error_crosses_number(), 3)
+
 
