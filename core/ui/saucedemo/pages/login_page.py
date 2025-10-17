@@ -1,7 +1,7 @@
 from settings import settings
 from .base_page import BasePage
 from ..locators.login_page_locators import LoginPageLocators
-
+import allure
 
 class LoginPage(BasePage):
 
@@ -32,6 +32,7 @@ class LoginPage(BasePage):
     def get_error_crosses_number(self):
         return len(self.error_crosses())
 
+    @allure.step("Input user name - {user_name}")
     def set_user_name(self, user_name):
         self._user_input().send_keys(user_name)
         return self
@@ -40,10 +41,12 @@ class LoginPage(BasePage):
         return self._present_element(self.locators.error_text_element).text
 
 
+    @allure.step("Input user password - {password}")
     def set_password(self, password):
         self._user_pass_input().send_keys(password)
         return self
 
+    @allure.step("Click login button")
     def click_login(self):
         self._login_button().click()
         return self

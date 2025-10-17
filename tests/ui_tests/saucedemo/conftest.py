@@ -4,7 +4,6 @@ from selenium.webdriver import Chrome
 from core.ui.saucedemo.pages.login_page import LoginPage
 from core.ui.saucedemo.pages.products_page import ProductsPage
 
-
 @pytest.fixture
 def driver():
     driver = Chrome()

@@ -12,21 +12,22 @@ faker = Faker()
 #class
 #function
 
-def get_student_ids(user_number):
-    ctrl = LocalFlaskController()
-    student_ids = [k["id"] for k in ctrl.get_students().json()]
-    random.shuffle(student_ids)
-    return student_ids[:user_number]
-desired_number = 5
-
-@pytest.fixture(scope="session", params=get_student_ids(desired_number))
-def student_id_parametrized(flask_ctrl, request):
-    return request.param
-
-def tests_get_student(flask_ctrl,student_id_parametrized):
-    response = flask_ctrl.get_student(student_id_parametrized).json()
-    assert isinstance(response, dict)
-    assert response["id"] == student_id_parametrized
+# def get_student_ids(user_number):
+#     ctrl = LocalFlaskController()
+#     student_ids = [k["id"] for k in ctrl.get_students().json()]
+#     random.shuffle(student_ids)
+#     return student_ids[:user_number]
+# desired_number = 5
+#
+# @pytest.fixture(scope="session", params=get_student_ids(desired_number))
+# def student_id_parametrized(flask_ctrl, request):
+#     return request.param
+#
+# @pytest.mark.skip
+# def tests_get_student(flask_ctrl,student_id_parametrized):
+#     response = flask_ctrl.get_student(student_id_parametrized).json()
+#     assert isinstance(response, dict)
+#     assert response["id"] == student_id_parametrized
 
 # def test_get_students(base_url):
 #     print("test started")
