@@ -3,10 +3,17 @@ from selenium.webdriver import Chrome
 
 from core.ui.saucedemo.pages.login_page import LoginPage
 from core.ui.saucedemo.pages.products_page import ProductsPage
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import ChromiumOptions
+from webdriver_manager.chrome import ChromeDriverManager
 
 @pytest.fixture
 def driver():
-    driver = Chrome()
+    chrome_options = ChromiumOptions()
+    service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(options=chrome_options, service=service)
+    # driver = Chrome()
     yield driver
     driver.close()
 
