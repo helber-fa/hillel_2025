@@ -1,0 +1,13 @@
+    version: '3.8'
+    services:
+      jenkins:
+        image: jenkins/jenkins:lts
+        privileged: true # May be needed for certain Docker-related operations within Jenkins
+        user: root # Or a specific user if desired
+        ports:
+          - "8080:8080"
+          - "50000:50000" # For Jenkins agents
+        volumes:
+          - ~jenkins_compose_data/jenkins_configuration:/var/jenkins_home # Persistent storage for Jenkins data
+          - ~jenkins_compose_data/docker.sock:/var/run/docker.sock
+        container_name: jenkins

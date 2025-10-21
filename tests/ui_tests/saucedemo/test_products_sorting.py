@@ -1,6 +1,9 @@
+import pytest
+
 from settings import settings
 import pytest_check
 
+@pytest.mark.ui
 def test_default_sorting(driver, login_page, products_page):
     login_page.login_user(settings.saucedemo_user, settings.saucedemo_pass)
     pytest_check.equal(products_page.get_current_select_option(), products_page.default_sort_option)
